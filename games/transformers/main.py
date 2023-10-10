@@ -8,7 +8,7 @@ init(autoreset=True)
 
 
 class Transformer:
-    def __init__(self, id, name, hp, attack, weapon, description, war_phrase, crit, regeneration, appearance):
+    def __init__(self, id, name, hp, attack, weapon, description, war_phrase, crit, regeneration, appearance, **kwargs):
         self.id = id
         self.name = name
         self.hp = hp
