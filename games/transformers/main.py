@@ -51,16 +51,17 @@ class Transformer:
             print(Fore.RED + f'{self.name} с ЛОВКОСТЬЮ {round(crit, 2)} КРИТАНУЛ!')
 
     def check_health(self, transformer):
-        healthy = self if self.hp > transformer.hp else transformer
-        if 150 > healthy.hp > 90:
-            print(Back.GREEN + Fore.BLACK + f'{healthy.name} с {round(healthy.hp, 2)} hp ЧУВСТВУЕТ СИЛУ!')
-        elif 200 > healthy.hp > 150:
-            print(Back.GREEN + Fore.BLACK + f'{healthy.name} {round(healthy.hp, 2)} hp МОГУЩЕСТВЕН!')
-        elif healthy.hp > 200:
-            print(Back.GREEN + Fore.RED + f'{healthy.name} {round(healthy.hp, 2)} hp НЕ БОИТСЯ БОГОВ!!!')
+        if not (self.is_alive() and transformer.is_alive()):
+            healthy = self if self.hp > transformer.hp else transformer
+            if 150 > healthy.hp > 90:
+                print(Back.GREEN + Fore.BLACK + f'{healthy.name} с {round(healthy.hp, 2)} hp ЧУВСТВУЕТ СИЛУ!')
+            elif 200 > healthy.hp > 150:
+                print(Back.GREEN + Fore.BLACK + f'{healthy.name} {round(healthy.hp, 2)} hp МОГУЩЕСТВЕН!')
+            elif healthy.hp > 200:
+                print(Back.GREEN + Fore.RED + f'{healthy.name} {round(healthy.hp, 2)} hp НЕ БОИТСЯ БОГОВ!!!')
 
     def start(self):
-        print(f'{self.name}! {self.appearance}')
+        print(f'{self.name}! {self.appearance}\n')
 
     def __repr__(self):
         return f'{self.name}! {self.description}'
@@ -70,16 +71,15 @@ class Transformer:
 
 
 transformers = []
+print('Да начнется битва трансформеров!\n')
+time.sleep(1)
 
 with open('data.json', 'r', encoding='utf-8') as f:
     json_transformers = json.load(f)
     for j in json_transformers:
-        print(j)
         transformers.append(Transformer(**j))
 
 t1 = t2 = None
-
-print('Да начнется битва трансформеров!')
 
 while transformers:
 
@@ -91,8 +91,6 @@ while transformers:
     if t2 is None:
         t2 = transformers.pop()
         t2.start()
-
-    print()
 
     t1.fight(t2)
     if not t2.is_alive():
