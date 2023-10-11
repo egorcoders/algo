@@ -1,1 +1,1 @@
-# algo
+# Nice project for kids
