@@ -1,8 +1,6 @@
 Text
-<<<<<<< .merge_file_emlUj9
 As a rift in space-time threatens to unravel reality itself, our heroes must
 race against time to prevent the cataclysmic event that could spell doom for all
-=======
+
 In a city overrun by crime and corruption, a lone vigilante emerges from the
 shadows to dispense justice with a vengeance
->>>>>>> .merge_file_faQBSC
