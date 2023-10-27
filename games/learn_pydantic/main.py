@@ -1,15 +1,39 @@
 import json
 import uuid
-from typing import List
+from enum import Enum, auto
+from typing import List, Optional
 from uuid import UUID
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, EmailStr
+
+
+class Weekdays(Enum):
+    MONDAY = "monday"
+    TUESDAY = "tuesday"
+    WEDNESDAY = "wednesday"
+    THURSDAY = "thursday"
+    FRIDAY = "friday"
+    SATURDAY = "saturday"
+
+
+class Event(BaseModel):
+    day: Weekdays = Field()
+    is_holiday: Optional[bool]
+
+
+event1 = Event(**{'day': Weekdays.MONDAY, 'is_holiday': True})
+event2 = Event(day=Weekdays.WEDNESDAY, is_holiday=False)
+event3 = Event(day=Weekdays.FRIDAY, is_holiday=None)  # No holiday information
+
+events = [event1, event2, event3]
+
+print([e.model_dump_json(by_alias=True) for e in events])
 
 
 class User(BaseModel):
     id: int
     name: str
-    email: str
+    email: EmailStr
     balance: int
 
 
