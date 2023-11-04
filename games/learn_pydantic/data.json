@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "street": "John Doe St.",
+    "room": 22,
+    "person": {
+      "id": 2,
+      "name": "Alice Smith",
+      "email": "alice@example.com",
+      "balance": 1500
+    }
+  },
+  {
+    "id": 2,
+    "street": "Jackson Morris St.",
+    "room": 21,
+    "person": {
+      "id": 1,
+      "name": "Emily Davis",
+      "email": "sophia.clark@protonmail.ch",
+      "balance": 1500
+    }
+  }
+]
+

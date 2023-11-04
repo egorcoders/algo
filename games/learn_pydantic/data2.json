@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe St.",
+    "email": "alice@example.com",
+    "balance": 1000
+  },
+  {
+    "id": 2,
+    "name": "Alice Smith",
+    "email": "alice@example.com",
+    "balance": 1500
+  },
+  {
+    "id": 3,
+    "name": "Bob Johnson",
+    "email": "bob@example.com",
+    "balance": 750
+  }
+]
+
