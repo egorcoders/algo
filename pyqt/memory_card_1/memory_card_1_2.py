@@ -85,5 +85,3 @@ window = QWidget()
 window.setLayout(layout_card)
 window.setWindowTitle('Memory Card')
 window.show()
-
-
